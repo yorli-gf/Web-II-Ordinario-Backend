@@ -7,6 +7,12 @@ class ProductoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DetallePedidoSerializer(serializers.ModelSerializer):
+    producto = ProductoSerializer(read_only=True)
+    class Meta:
+        model = DetallePedido
+        fields = '__all__'
+
+class DetallePedidoWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = DetallePedido
         fields = '__all__'
@@ -17,3 +23,4 @@ class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedido
         fields = '__all__'
+        read_only_fields = ['usuario', 'fecha']

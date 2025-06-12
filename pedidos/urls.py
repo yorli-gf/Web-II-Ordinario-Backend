@@ -5,7 +5,7 @@ from .views import ProductoViewSet, PedidoViewSet, DetallePedidoViewSet
 router = DefaultRouter()
 router.register(r'productos', ProductoViewSet)
 router.register(r'pedidos', PedidoViewSet)
-router.register(r'detalles', DetallePedidoViewSet)
+router.register(r'detalles', DetallePedidoViewSet, basename='detallepedido')
 
 urlpatterns = [
     path('', include(router.urls)),
